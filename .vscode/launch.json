@@ -20,13 +20,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
-        },
-        {
-            "name": "flutterbasic (release mode)",
-            "type": "chrome",
-            "request": "attach",
-            "port": 9000,
-            "webRoot":"${workspaceRoot}/src"
         }
     ]
 }
