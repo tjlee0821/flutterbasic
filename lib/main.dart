@@ -21,10 +21,26 @@ class CustomContainer extends StatelessWidget {
       width:double.infinity,
       height:double.infinity,
       //color:Colors.red.shade200,
-      color:const Color(0xFF85D07B),
+      //color:const Color(0xFF85D07B),
       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
       margin: EdgeInsets.symmetric(vertical: 24, horizontal: 30),
-      child:Center(child: Text('Hello, Flutter'),),
+      decoration: BoxDecoration(
+        color:Colors.green,
+        border: Border.all(color: Colors.green),
+        borderRadius: BorderRadius.circular(200),
+        boxShadow: [BoxShadow(
+          color:Colors.black.withOpacity(0.3), offset: Offset(6, 6),
+        )],
+      ),
+      child:Center(child: Container(
+        decoration: BoxDecoration(
+         
+          border:Border.all(color:Colors.green),
+          borderRadius:BorderRadius.circular(200),
+        ),
+        child: Text('Hello, Flutter'),
+        ),
+        ),
     );
   }
 }
