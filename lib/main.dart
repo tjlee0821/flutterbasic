@@ -6,41 +6,74 @@ void main(){
       appBar: AppBar(
         title: const Text('Container'),
       ),
-      body: const CustomContainer(),
+      body: const Body(),
   ),
   ),
   );
 }
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key});
-//
+class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width:double.infinity,
-      height:double.infinity,
-      //color:Colors.red.shade200,
-      //color:const Color(0xFF85D07B),
-      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      margin: EdgeInsets.symmetric(vertical: 24, horizontal: 30),
-      decoration: BoxDecoration(
-        color:Colors.green,
-        border: Border.all(color: Colors.green),
-        borderRadius: BorderRadius.circular(200),
-        boxShadow: [BoxShadow(
-          color:Colors.black.withOpacity(0.3), offset: Offset(6, 6),
-        )],
+    return Column(
+      children:[
+        ExampleStatless(),
+        ExampleStateful()
+      ],
+    );
+  }
+}
+
+class ExampleStatless extends StatelessWidget {
+  const ExampleStatless({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex:1,
+      child: Container(
+        color:Colors.red,
       ),
-      child:Center(child: Container(
-        decoration: BoxDecoration(
-         
-          border:Border.all(color:Colors.green),
-          borderRadius:BorderRadius.circular(200),
+    );
+  }
+}
+
+class ExampleStateful extends StatefulWidget {
+  const ExampleStateful({super.key});
+
+  @override
+  State<ExampleStateful> createState() => _ExampleStatefulState();
+}
+
+class _ExampleStatefulState extends State<ExampleStateful> {
+  int index = 0;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex:1,
+      child: GestureDetector(
+        onTap: (){
+          setState(() {
+            
+          },);
+          if(index == 5){
+            index = 0;
+            return;
+          }
+          index ++;
+
+          print(index);
+        },
+        child: Container(
+          color:Colors.blue.withOpacity(index/5),
+          child: Center(child: Text('$index'),
+          ),
         ),
-        child: Text('Hello, Flutter'),
-        ),
-        ),
+      ),
     );
   }
 }
