@@ -9,7 +9,8 @@ void main(){
       body:const HomeWidget(),
     )
 
-  ),);
+  ),
+  );
 
 }
 class HomeWidget extends StatelessWidget {
@@ -31,10 +32,15 @@ class ConstraintWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:500,width: 500, color:Colors.red,child: Container(
-        height:300,
-        width:300,
-        color:Colors.red,
+      height:500,width: 500, 
+      color:Colors.blue,
+      child: Center(
+        
+        child: Container(
+          height:300,
+          width:300,
+          color:Colors.red,
+        ),
       ),
 
 
