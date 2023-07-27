@@ -6,30 +6,38 @@ void main(){
         title: const Text('widget 배율로 배치'),
       ),
 
-      body:const Body(),
+      body:const HomeWidget(),
     )
 
   ),);
 
 }
-class Body extends StatelessWidget {
-  const Body({super.key});
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // children: [
-      //   Flexible(flex: 1,child: Container(color:Colors.red)),
-      //   Flexible(flex: 2,child: Container(color:Colors.blue)),
-      // ],
-
-      children: [
-        Container(width: double.infinity, height:200, color:Colors.red,),
-        Expanded(child: Container(color:Colors.blue),),
-        Expanded(child: Container(color:Colors.purple),),
-        Flexible(child: Container(color:Colors.red))
-      ],
+    return const SafeArea(
+      child: Scaffold(
+        body:ConstraintWidget(),
+      )
     );
   }
 }
 
+class ConstraintWidget extends StatelessWidget {
+  const ConstraintWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height:500,width: 500, color:Colors.red,child: Container(
+        height:300,
+        width:300,
+        color:Colors.red,
+      ),
+
+
+    );
+  }
+}
