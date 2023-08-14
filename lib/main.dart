@@ -52,6 +52,12 @@ int value = 0;
       value ++;
     });
    }
+
+  //  void addCount( int addValue ){
+  //   setState(() {
+  //     value + addValue;
+  //   });
+  //  }
 }    
 
 
@@ -59,11 +65,13 @@ class TxtButton extends StatelessWidget {
   const TxtButton(this.callback, {super.key});
 
   final VoidCallback callback;
+  // final Function(int) callback;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap:()=> callback.call(),
+      //onTap:()=> callback.call(1),
       child: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(vertical:8),
