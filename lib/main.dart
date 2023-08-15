@@ -1,5 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+
+const assetImageNetworkPath = 'https://www.collective-intelligent.com';
+const logoImage = '$assetImageNetworkPath/tmp/logo_256.png';
 void main(){
   runApp(MaterialApp(
     home:Scaffold(
@@ -7,7 +10,7 @@ void main(){
         title: const Text('Flutter 외부라이브러리'),
       ),
 
-      body:RandomWords(),
+      body:Body(),
     )
 
   ),
@@ -15,19 +18,13 @@ void main(){
 
 }
 
-class RandomWords extends StatelessWidget {
-  const RandomWords
-({super.key});
+class Body extends StatelessWidget {
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final wordList = generateWordPairs().take(5).toList();
-    
-    final widgets = wordList.map((word) => Text(word.asString, style: TextStyle(fontSize:32,),),).toList();
-
-    
-    return Column(
-      children: widgets
-    );
+    return Center(
+      child: Image.network('$logoImage')
+      );
   }
 }
