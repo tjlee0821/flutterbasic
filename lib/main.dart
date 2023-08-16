@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbasic/pages/new_page.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutterbasic/style/theme.dart';
 
 void main() {
   runApp(
-    MaterialApp.router(
-      routerConfig: GoRouter(
-        initialLocation: '/',
-        routes: [
-          GoRoute(
-              path: '/',
-              name: 'home',
-              builder: (context, _) => const HomeWidget()),
-          GoRoute(
-              path: '/new1',
-              name: 'new1',
-              builder: (context, _) => const NewPage()),
-          GoRoute(
-              path: '/new2',
-              name: 'new2',
-              builder: (context, _) => const NewPage2()),
-        ],
-      ),
-    ),
+    MaterialApp(home: HomeWidget(), theme: customTheme
+        // theme: ThemeData(
+        //   colorScheme: ColorScheme.light(
+        //     primary: Colors.indigo,
+        //     secondary: Colors.green,
+        //     tertiary: Colors.yellow,
+        //   ),
+        //   appBarTheme: AppBarTheme(backgroundColor: Colors.red),
+        // ),
+        ),
   );
 }
 
@@ -43,15 +33,18 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 
   Widget build(BuildContext context) {
+    // final textTheme = Theme.of(context).textTheme;
+
+    final textTheme = customTheme.textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Page Router를 이용해서'),
+        title: const Text('Flutter Theme'),
       ),
       body: Center(
         child: TextButton(
-            child: const Text('Go To Page'),
+            child: Text('Go To Page', style: textTheme.bodyMedium),
             onPressed: () {
-              context.pushNamed('new1');
+              //   context.pushNamed('new1');
             }),
       ),
     );
