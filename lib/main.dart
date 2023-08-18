@@ -1,51 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbasic/style/theme.dart';
+import 'package:flutterbasic/pages/RSAgame.dart';
 
 void main() {
-  runApp(
-    MaterialApp(home: HomeWidget(), theme: customTheme
-        // theme: ThemeData(
-        //   colorScheme: ColorScheme.light(
-        //     primary: Colors.indigo,
-        //     secondary: Colors.green,
-        //     tertiary: Colors.yellow,
-        //   ),
-        //   appBarTheme: AppBarTheme(backgroundColor: Colors.red),
-        // ),
-        ),
-  );
+  runApp(const RSPApp());
 }
 
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+class RSPApp extends StatelessWidget {
+  const RSPApp({super.key});
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
-}
-
-class _HomeWidgetState extends State<HomeWidget> {
-  late int index;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    index = 0;
-  }
-
   Widget build(BuildContext context) {
-    // final textTheme = Theme.of(context).textTheme;
-
-    final textTheme = customTheme.textTheme;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Theme'),
-      ),
-      body: Center(
-        child: TextButton(
-            child: Text('Go To Page', style: textTheme.bodyMedium),
-            onPressed: () {
-              //   context.pushNamed('new1');
-            }),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('가위 바위 보'),
+        ),
+        body: const GameBody(),
       ),
     );
   }
